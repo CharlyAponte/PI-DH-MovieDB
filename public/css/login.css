@@ -1,0 +1,71 @@
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+.login-box {
+  width: 300px;
+  background-color: #ebebeb;
+  padding: 50px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  color: white;
+}
+
+main h3 {
+  color: black;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  width: 100%;
+  background-color: #ebebeb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-size: 18px;
+}
+
+.login-box p {
+  height: 40px;
+  text-align: center;
+  color: black;
+  font-size: 16px;
+  line-height: 40px;
+}
+
+.login-box a {
+  color: black;
+  text-decoration: none;
+}
+
+.login-box .suscribete {
+  color: rgb(243, 138, 58);
+  font-weight: 600;
+}
+
+.login-box a:hover {
+  color: rgb(225, 36, 36);
+  text-decoration: underline;
+}
+
+.login-box .botones {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+@media (min-width: 760px) {
+  .login-box {
+    width: 400px;
+  }
+}
