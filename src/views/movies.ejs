@@ -12,18 +12,17 @@
             <h1>LISTADO DE PELICULAS:</h1>
           </div>
           <div class="main-movie">
-            <h2>Peliculas</h2>
+            <% for(let i=0; i < movies.length; i++ ) { %>
+              <li>
+                <a href="/movies/detail/<%= movies[i].id 
+          %>">
 
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio laborum eligendi ut illum! Sit itaque
-              optio
-              harum porro nesciunt molestias corrupti voluptates et minima impedit fuga in ratione consequuntur cumque
-              rerum dolorem alias, earum culpa quis quam aliquid. Deleniti nulla ut unde, delectus molestias ratione
-              harum
-              nam eius excepturi ipsa asperiores explicabo, recusandae deserunt nihil placeat ipsam sunt amet
-              consectetur.
-              Labore repudiandae maiores minus placeat voluptatibus repellendus eaque nam unde, itaque eos nobis aut
-              doloremque corrupti doloribus nihil porro quos quo repellat at voluptates ipsa odio. Possimus asperiores
-              dolor accusamus doloremque, unde ea corrupti quas facilis libero iste? Perspiciatis, alias!</p>
+                  <%= movies[i].title %>
+                </a>
+              </li>
+              <% } %>
+
+
           </div>
         </div>
 

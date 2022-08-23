@@ -24,6 +24,22 @@
   box-shadow: 2px 2px 2px 1px rgba(250, 244, 244, 0.2);
 }
 
+.main-movie li {
+  padding: 5px;
+  text-align: center;
+}
+
+.main-movie a {
+  color: rgb(13, 13, 13);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.main-movie a:hover {
+  color: rgb(199, 164, 27);
+  text-decoration: underline;
+}
+
 @media (min-width: 1200px) {
   main .main-top {
     width: 60%;
