@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-// const methodOverride = require("method-override");  action="/posts/<%= personas['_id'] %>" method="POST"
+const methodOverride = require("method-override"); //*action="/posts/<%= personas['_id'] %>" method="POST"
 
 const routes = require("./routes/mainRoutes");
 const moviesRoutes = require("./routes/moviesRoutes");
@@ -9,6 +9,7 @@ const moviesRoutes = require("./routes/moviesRoutes");
 app.set("views", path.resolve(__dirname, "./views"));
 app.set("view engine", "ejs");
 app.use(express.static("./public"));
+app.use(methodOverride("_method"));
 
 app.use("/", routes);
 app.use(moviesRoutes);

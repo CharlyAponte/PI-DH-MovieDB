@@ -1,0 +1,74 @@
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+section {
+  color: rgb(18, 18, 18);
+  border: 2px solid rgb(219, 219, 217);
+  background-color: #d5d3d3;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+section article {
+  margin-top: 20px;
+}
+
+section label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+section input {
+  width: 90%;
+  background-color: #ebebeb;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #1f53c5;
+  font-size: 18px;
+}
+
+input {
+  font-size: 40px;
+  border: 2px solid olive;
+}
+
+.botonAgregar {
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.botonVolver {
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  section {
+    width: 25%;
+  }
+
+  section input {
+    font-size: 15px;
+    padding: 10px;
+  }
+}

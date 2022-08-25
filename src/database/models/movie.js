@@ -21,6 +21,7 @@ module.exports = (sequelize, dataTypes) => {
     release_date: {
       type: dataTypes.DATE,
     },
+    genre_id: dataTypes.BIGINT(10),
   };
   let config = {
     tableName: "movies",

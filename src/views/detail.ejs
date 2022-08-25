@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="/css/detail.css">
+
+<%- include('./partials/head.ejs') %>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+      <main>
+
+        <div class="main-top">
+          <div class="titulo">
+            <h1>DETALLE DE: </h1>
+            <p>
+              <%= detail.title %>
+            </p>
+
+          </div>
+          <div class="main-movie">
+            <div>
+              <h3>RATING:</h3>
+              <p>
+                <%= detail.rating %>
+              </p>
+            </div>
+            <div>
+              <h3>PREMIOS: </h3>
+              <p>
+                <%= detail.awards %>
+              </p>
+            </div>
+            <div>
+              <h3> DURACION: </h3>
+              <p>
+                <%= detail.length + ' min' %>
+              </p>
+            </div>
+            <div>
+              <h3> ESTRENO:</h3>
+              <p>
+                <%= detail.release_date.toLocaleDateString('es-US')%>
+              </p>
+            </div>
+          </div>
+
+          <div class="detail_order">
+            <h3>Genero: </h3>
+            <% if (genres.name==undefined) { %>
+              <p>-- </p>
+              <% } else { %>
+                <p>
+                  <%= genres.name %>
+                </p>
+                <% } %>
+          </div>
+
+
+          <section>
+            <a class="botonModificar" href="/movies/edit/<%= detail.id %>">Modificar Pelicula</a>
+            <a class="botonBorrar" href="/movies/delete/<%= detail.id %>">Borrar</a>
+            <br>
+
+            <a class="botonVolver" href="/movies">Listado de Películas</a>
+          </section>
+
+
+        </div>
+        </div>
+
+
+      </main>
+
+
+      <%- include('./partials/footer.ejs') %>
+  </body>
+
+</html>
