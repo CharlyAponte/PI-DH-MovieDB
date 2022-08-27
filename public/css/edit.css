@@ -1,0 +1,43 @@
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+.form_main_container {
+  border: 2px solid #ebebeb;
+  background-color: #ebebeb;
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  color: rgb(13, 13, 13);
+  padding-bottom: 30px;
+  font-size: 20px;
+}
+
+.botones {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.botones a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.botones a:hover {
+  color: rgb(199, 164, 27);
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .form_main_container {
+    width: 40%;
+    margin: auto;
+    margin-top: 50px;
+    color: rgb(13, 13, 13);
+    padding-bottom: 30px;
+  }
+}

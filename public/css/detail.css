@@ -40,3 +40,16 @@ div p {
   margin-left: 5px;
   font-size: 20px;
 }
+
+.botonEdit {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.botonEdit a {
+  text-decoration: none;
+  color: rgb(7, 15, 246);
+}

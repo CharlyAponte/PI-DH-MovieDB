@@ -54,13 +54,32 @@
                 <% } %>
           </div>
 
+          <div class=" Actor_detalle">
+            <h3>Actores: </h3>
+            <% for(let i=0; i < movieActors.length; i++ ) { %>
+              <li>
+                <a href="/movies/detail/<%= movieActors[i].id 
+                    %>">
 
-          <section>
+                  <%= movieActors[i].first_name %>
+                    <%= movieActors[i].last_name %>
+                </a>
+              </li>
+              <% } %>
+
+
+          </div>
+          <div class=botonEdit>
             <a class="botonModificar" href="/movies/edit/<%= detail.id %>">Modificar Pelicula</a>
             <a class="botonBorrar" href="/movies/delete/<%= detail.id %>">Borrar</a>
             <br>
 
             <a class="botonVolver" href="/movies">Listado de Películas</a>
+          </div>
+
+
+          <section>
+
           </section>
 
 

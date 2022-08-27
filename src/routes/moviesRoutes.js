@@ -6,8 +6,8 @@ router.get("/movies", moviesController.movies);
 router.get("/movies/detail/:id", moviesController.detail);
 
 //*editar una pelicula
-router.get("/edit/:id", moviesController.edit);
-router.put("/edit/:id", moviesController.update);
+router.get("/movies/edit/:id", moviesController.edit);
+router.put("/movies/edit/:id", moviesController.update);
 
 //Rutas para la creación del CRUD
 // router.get("/movies/add", moviesController.create);

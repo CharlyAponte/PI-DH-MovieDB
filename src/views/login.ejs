@@ -8,16 +8,18 @@
     <%- include('./partials/header.ejs') %>
 
       <main>
-        <!-- <form method="post" action="#"> -->
+
         <div class="login-box">
           <h3>Inicia Sesion</h3>
-          <input class="buttons" type="text" name="usuario" value="" placeholder="Email o numero de telefono">
-          <input class="buttons" type="text" name="password" value="" placeholder="Contraseña">
-          <input class="botones" type="submit" name="" value="Ingresar">
-          <p><a href="#">¿Olvidaste la contraseña?</a></p>
-          <p>¿Primera vez?<a class="suscribete" href="/register"> Suscribete ahora.</a></p>
+          <form method="POST" action="/login">
+            <input class="buttons" type="text" name="usuario" value="" placeholder="Email o numero de telefono">
+            <input class="buttons" type="text" name="password" value="" placeholder="Contraseña">
+            <input class="botones" type="submit" name="" value="Ingresar">
+            <p><a href="#">¿Olvidaste la contraseña?</a></p>
+            <p>¿Primera vez?<a class="suscribete" href="/register"> Suscribete ahora.</a></p>
+          </form>
         </div>
-        </form>
+
       </main>
 
       <%- include('./partials/footer.ejs') %>

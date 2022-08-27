@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="/css/movies.css">
+<link rel="stylesheet" href="/css/edit.css">
 
 <%- include('./partials/head.ejs') %>
 
@@ -14,7 +14,7 @@
             <form action="/movies/edit/<%= editMovie.id %>?_method=PUT" method="POST">
               <div>
                 <label for="">Titulo:</label>
-                <input type="text" name="title" value="<%= editMovie.title %> ">
+                <input type="text" name="title" id="title" value="<%= editMovie.title %>  ">
               </div>
               <div>
                 <label for="">Rating:</label>
@@ -22,34 +22,59 @@
               </div>
               <div>
                 <label for="">Premios:</label>
-                <input type="text" name="awards" value="<%= editMovie.awards %> ">
+                <input type="text" name="awards" value="<%= editMovie.awards%> ">
               </div>
               <div>
                 <label for="">Fecha de estreno:</label>
-                <input type="date" name="release_date" value="<%= editMovie.release_date %>" autocomplete="on">
+                <input type="text" name="release_date" value="<%= editMovie.release_date.toLocaleDateString('es-US')%>"
+                  autocomplete="on">
               </div>
               <div>
                 <label for="">Duración:</label>
                 <input type="text" name="length" value="<%= editMovie.length %> ">
               </div>
-              <div>
-                <label for="">Género:</label>
-                <select name="genre_id">
-                  <% allGenres.forEach(genre=> { %>
-                    <% if (editMovie.id===genre.id) { %>
-                      <option value="<%= genre.id %>" selected>
-                        <%= genre.name %>
-                      </option>
-                      <% } %>
-                        <option value="<%= genre.id %>">
+              <div class="generos_actores">
+                <div>
+                  <label for="">Género:</label>
+                  <select name="generos">
+                    <% allGenres.forEach(genre=> { %>
+                      <% if (editMovie.id===genre.id) { %>
+                        <option value="<%= genre.id %>" selected>
                           <%= genre.name %>
                         </option>
-                        <% }) %>
+                        <% } %>
+                          <option value="<%= genre.id %>">
+                            <%= genre.name %>
+                          </option>
+                          <% }) %>
+                  </select>
+                </div>
+
+                <label for="">Actores:</label>
+                <select name="Actores">
+                  <% for(let i=0; i < allActors.length; i++ ) { %>
+                    <li>
+                      <option value="<%= allActors[i].id %>">
+                        <%= allActors[i].first_name %>
+                          <%= allActors[i].last_name %>
+                      </option>
+                      <p>
+
+                      </p>
+
+                    </li>
+                    <% } %>
                 </select>
               </div>
+              </div>
+              <div class="botones">
+                <input type="submit" value="Guardar cambios">
+                <a class="botonHome" href="/">Home</a>
+              </div>
+            </form>
+        </section>
 
-
-              <%- include('./partials/footer.ejs') %>
+        <%- include('./partials/footer.ejs') %>
   </body>
 
 </html>

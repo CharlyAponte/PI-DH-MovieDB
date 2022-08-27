@@ -35,11 +35,7 @@ const moviesController = {
         movieActors.push(actor);
       }
 
-      console.log("La peli id es:" + detail.id);
-      console.log("Los actores son: ");
-      console.log(movieActors);
-
-      res.render("detail", { detail, genres });
+      res.render("detail", { detail, genres, movieActors });
     } catch (error) {
       console.log(error);
     }
@@ -51,10 +47,10 @@ const moviesController = {
       const editMovie = await db.Movie.findByPk(idMovie, {
         include: { all: true },
       });
-      console.log(editMovie);
-      const allGenres = await Genre.findAll();
-      const allActors = await Actor.findAll();
-      res.render("/movies/edit", { editMovie, allGenres, allActors });
+      const allGenres = await db.Genre.findAll();
+      const allActors = await db.Actors.findAll();
+      console.log(allActors);
+      res.render("edit", { editMovie, allGenres, allActors });
     } catch (error) {
       console.log(error);
     }
@@ -62,14 +58,9 @@ const moviesController = {
 
   update: async (req, res) => {
     try {
-      let idMovie = req.params.id;
-      const updateMovie = await db.Movie.findByPk(idMovie, {
-        include: { all: true },
-      });
-      await updateMovie.removeActor(idMovie.actor);
-      await updateMovie.addActor(req.body.actor);
-      await updateMovie.update(req.body);
-      res.redirect("/movies/list");
+      let update = document.getElementById("title");
+      console.log("hola");
+      res.render("detail");
     } catch (error) {
       console.log(error);
     }
