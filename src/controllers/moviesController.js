@@ -25,7 +25,6 @@ const moviesController = {
           movie_id: detail.id,
         },
       });
-      console.log(actorsIds[0].actor_id);
       let movieActors = [];
       //con los ids de los actores voy a la tabla de actores para obtener su informacion especifica
       for (let i = 0; i < actorsIds.length; i++) {
@@ -43,48 +42,70 @@ const moviesController = {
 
   edit: async (req, res) => {
     try {
-      let idMovie = req.params.id;
-      const editMovie = await db.Movie.findByPk(idMovie, {
+      const edition = await db.Movie.findByPk(req.params.id, {
         include: { all: true },
       });
-      const allGenres = await db.Genre.findAll();
-      const allActors = await db.Actors.findAll();
-      console.log(allActors);
-      res.render("edit", { editMovie, allGenres, allActors });
-    } catch (error) {
-      console.log(error);
-    }
+      const genresEdit = await db.Genre.findAll();
+      const actorsEdit = await db.Actors.findAll();
+      res.render("edit", { edition, genresEdit, actorsEdit });
+    } catch (error) {}
   },
 
   update: async (req, res) => {
     try {
-      let update = document.getElementById("title");
-      console.log("hola");
-      res.render("detail");
+      let movieUpdate = await db.Movie.update(
+        {
+          title: req.body.title,
+          rating: req.body.rating,
+          awards: req.body.awards,
+          release_date: req.body.release_date,
+          length: req.body.length,
+          genre_id: req.body.genre,
+        },
+        {
+          where: {
+            id: req.params.id,
+          },
+        }
+      );
+      res.redirect("/movies/detail/" + req.params.id);
     } catch (error) {
       console.log(error);
     }
   },
-  // create: function (req, res) {
-  //   db.Movie.findAll().then((Movie) => {
-  //     return res.render("create");
-  //   });
-  // },
 
-  // create: function (req, res) {
-  //   db.Movie.create({
-  //     created_at: req.body.created_at,
-  //     updated_at: req.body.updated_at,
-  //     title: req.body.title,
-  //     rating: req.body.rating,
-  //     awards: req.body.awards,
-  //     release_date: req.body.release_date,
-  //     length: req.body.length,
-  //     genre_id: req.body.genre_id,
-  //   }).then((movie) => {
-  //     res.redirect("/movies", { movie });
-  //   });
-  // },
+  destroy: async (req, res) => {
+    console.log("------------------------------" + req.params.id);
+    let movieDelete = await db.Movie.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    // console.log("borre: " + movieDelete);
+
+    res.redirect("/movies");
+  },
+  add: async function (req, res) {
+    let actores = await db.Actors.findAll();
+    let generos = await db.Genre.findAll();
+    return res.render("add", { actores, generos });
+  },
+
+  create: async function (req, res) {
+    db.Movie.create({
+      created_at: req.body.created_at,
+      updated_at: req.body.updated_at,
+      title: req.body.title,
+      rating: req.body.rating,
+      awards: req.body.awards,
+      release_date: req.body.release_date,
+      length: req.body.length,
+      genre_id: req.body.genre_id,
+    }).then((movie) => {
+      res.redirect("/movies", { movie, actors, genres });
+    });
+  },
 };
 
 module.exports = moviesController;

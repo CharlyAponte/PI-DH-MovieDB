@@ -7,10 +7,13 @@ router.get("/movies/detail/:id", moviesController.detail);
 
 //*editar una pelicula
 router.get("/movies/edit/:id", moviesController.edit);
-router.put("/movies/edit/:id", moviesController.update);
+router.put("/movies/edit/:id/update", moviesController.update);
+
+//*Eliminar Pelicula
+router.delete("/movies/destroy/:id", moviesController.destroy);
 
 //Rutas para la creación del CRUD
-// router.get("/movies/add", moviesController.create);
-// router.post("/movies/create", moviesController.create);
+router.get("/movies/add", moviesController.add);
+router.post("/movies/create", moviesController.create);
 
 module.exports = router;
