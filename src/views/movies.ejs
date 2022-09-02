@@ -7,29 +7,29 @@
   <body>
     <%- include('./partials/header.ejs') %>
       <main>
-        <div class="main-top">
-          <div>
-            <h1>LISTADO DE PELICULAS:</h1>
-          </div>
-          <div class="main-movie">
-            <% for(let i=0; i < movies.length; i++ ) { %>
-              <li>
-                <a href="/movies/detail/<%= movies[i].id 
+        <%- include('./partials/session.ejs') %>
+
+          <div class="main-top">
+            <div>
+              <h1>LISTADO DE PELICULAS:</h1>
+            </div>
+            <div class="main-movie">
+              <% for(let i=0; i < movies.length; i++ ) { %>
+                <li>
+                  <a href="/movies/detail/<%= movies[i].id 
           %>">
+                    <%= movies[i].title %>
+                  </a>
+                </li>
+                <% } %>
 
-                  <%= movies[i].title %>
-                </a>
-              </li>
-              <% } %>
+                  <button class="botonAgregar">
+                    <a href="/movies/add">Agregar Película</a>
+                  </button>
 
-
+            </div>
           </div>
-        </div>
-
-
       </main>
-
-
       <%- include('./partials/footer.ejs') %>
   </body>
 

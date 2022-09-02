@@ -1,0 +1,28 @@
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+body h1 {
+  color: white;
+  text-align: center;
+}
+
+section {
+  text-align: center;
+  color: white;
+}
+
+.bottom {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.bottom a {
+  text-decoration: none;
+}
+
+.bottom a:hover {
+  color: rgb(225, 36, 36);
+  text-decoration: underline;
+}

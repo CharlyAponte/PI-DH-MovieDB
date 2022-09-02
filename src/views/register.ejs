@@ -7,26 +7,34 @@
 
     <%- include('./partials/header.ejs') %>
       <main>
-        <form method="POST" action="/register/create" enctype="multipart/form-data">
-          <section class="form-register">
+        <section class="form-register">
+          <form method="POST" action="/user/register">
+
             <h3>Registrate!</h3>
             <!-- NOMBRE -->
             <input class="controls" type="text" name="nombre" autocomplete="nombre" id="nombre" required minlength="4"
               maxlength="18" placeholder="Ingrese su Nombre">
-            <!-- Apellido -->
-            <input class="controls" type="text" name="apellido" autocomplete="apellido" id="apellido"
-              placeholder="Ingrese su Apellido" required minlength="4" maxlength="30">
+
             <!-- EMAIL-->
             <input class=" controls" type="email" name="mail" id="mail" placeholder="Ingrese su Correo"
               autocomplete="email" required>
+
             <!-- PASSWORD-->
             <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña"
               autocomplete="new-password" required minlength="6">
-            <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+
+            <label>Rol de usuario</label>
+            <select name="rol" id="rol">
+              <option value="1">Administrador</option>
+              <option value="0">Usuario</option>
+            </select>
             <input class="botons" type="submit" value="Registrar">
-            <p>¿Ya tenes Cuenta?<a class="inicioSesion" href="/login"> Iniciar Sesion</a></p>
-          </section>
-        </form>
+          </form>
+        </section>
+
+        <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
+
+        <p>¿Ya tenes Cuenta?<a class="inicioSesion" href="/user/login"> Iniciar Sesion</a></p>
 
       </main>
 

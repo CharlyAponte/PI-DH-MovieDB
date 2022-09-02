@@ -1,7 +1,7 @@
 {
-  "name": "myApp",
+  "name": "dh-movies",
   "version": "1.0.0",
-  "description": "",
+  "description": "dh-movies",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "debug": "^4.3.4",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-session": "^1.17.3",
     "express-validator": "^6.14.2",
+    "http-errors": "^2.0.0",
     "method-override": "^3.0.0",
     "mysql2": "^2.3.3",
     "sequelize": "^6.21.4"

@@ -45,47 +45,35 @@
 
           <div class="detail_order">
             <h3>Genero: </h3>
-            <% if (genres.name==undefined) { %>
-              <p>-- </p>
-              <% } else { %>
-                <p>
-                  <%= genres.name %>
-                </p>
-                <% } %>
+            <%(detail.genre.name)%>
+              </p>
           </div>
 
-          <div class=" Actor_detalle">
+          <div class=" actor_detalle">
             <h3>Actores: </h3>
-            <% for(let i=0; i < movieActors.length; i++ ) { %>
+            <% for(let i=0; i < detail.actors.length; i++ ) { %>
               <li>
-                <a href="/movies/detail/<%= movieActors[i].id 
-                    %>">
-
-                  <%= movieActors[i].first_name %>
-                    <%= movieActors[i].last_name %>
-                </a>
+                <%= detail.actors[i].first_name %>
+                  <%= detail.actors[i].last_name %>
+                    </a>
               </li>
               <% } %>
 
 
           </div>
-          <div class=botonEdit>
-            <a class="botonModificar" href="/movies/edit/<%= detail.id %>">Modificar Pelicula</a>
-            <form action="/movies/destroy/<%= detail.id %>?_method=DELETE" method="POST">
-              <input type="submit" value="Borrar">
-            </form>
-            <br>
-
-            <a class="botonVolver" href="/movies">Listado de Películas</a>
+          <div class=botonCrud>
+            <% if (!locals.user) { %>
+              <button><a href="/movies">Volver al listado de peliculas</a></button>
+              <% } else { %>
+                <button>
+                  <a href="/movies/delete/<%= detail.id %>">Eliminar película</a>
+                </button>
+                <a class="botonModificar" href="/movies/edit/<%= detail.id %>">Modificar Pelicula</a>
+                <button><a href="/movies">Volver al listado de peliculas</a></button>
+                <% } %>
           </div>
 
 
-          <section>
-
-          </section>
-
-
-        </div>
         </div>
 
 

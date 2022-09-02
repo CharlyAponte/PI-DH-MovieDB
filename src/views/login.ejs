@@ -11,12 +11,17 @@
 
         <div class="login-box">
           <h3>Inicia Sesion</h3>
-          <form method="POST" action="/login">
-            <input class="buttons" type="text" name="usuario" value="" placeholder="Email o numero de telefono">
-            <input class="buttons" type="text" name="password" value="" placeholder="Contraseña">
-            <input class="botones" type="submit" name="" value="Ingresar">
-            <p><a href="#">¿Olvidaste la contraseña?</a></p>
-            <p>¿Primera vez?<a class="suscribete" href="/register"> Suscribete ahora.</a></p>
+          <form method="POST" action="/user/login">
+            <input class="buttons" type="email" name="email" id="email" placeholder="Email o numero de telefono" />
+            <% if (locals.errors && errors.email) { %>
+              <p class="text">
+                <%= errors.email.msg %>
+              </p>
+              <% } %>
+                <input class="buttons" type="password" name="password" id="password" placeholder="Contraseña" />
+                <input class="botones" type="submit" name="" value="Ingresar">
+                <p><input type="checkbox" name="token" />Recordar mi usuario</p>
+                <p>¿Primera vez?<a class="suscribete" href="/user/register"> Suscribete ahora.</a></p>
           </form>
         </div>
 

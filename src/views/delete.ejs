@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<link rel="stylesheet" href="/css/delete.css">
+
+<%- include('./partials/head.ejs') %>
+
+  <body>
+    <%- include('./partials/header.ejs') %>
+      <h1>ELIMINAR PELICULA</h1>
+      <section>
+        <form action="/movies/delete/<%= movies.id %>?_method=DELETE" method="POST" class="form-menu">
+          <div>
+            <p>¿ Deseas eliminar a <%= movies.title %>?</p>
+          </div>
+          <div class="borrar">
+            <button type="submit">Borrar película</button>
+          </div>
+        </form>
+      </section>
+
+      <div class="bottom">
+        <button><a href="/movies"> Volver al Listado de películas</a></button>
+      </div>
+  </body>
+
+</html>

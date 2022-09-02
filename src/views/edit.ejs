@@ -11,61 +11,71 @@
         <section class="form_section_container">
           <h2>Editar película: </h2>
           <article class="form_article_container">
-            <form action="/movies/edit/<%= edition.id %>/update?_method=PUT" method="POST">
+            <form action="/movies/edit/<%= movie.id %>?_method=PUT" method="POST">
               <div>
-                <label for="">Titulo:</label>
-                <input type="text" name="title" id="title" value="<%= edition.title %>  ">
+                <label for="title">Titulo:</label>
+                <input type="text" name="title" id="title" value="<%= movie.title %>" />
+                <% if (locals.errors && errors.title) { %>
+                  <p class="text">
+                    <%= errors.title.msg %>
+                  </p>
+                  <% } %>
               </div>
               <div>
-                <label for="">Rating:</label>
-                <input type="text" name="rating" value="<%= edition.rating %> ">
+                <label for="rating">Rating:</label>
+                <input type="number" name="rating" id="rating" value="<%= movie.rating %> " />
+                <% if (locals.errors && errors.title) { %>
+                  <p class="text">
+                    <%= errors.title.msg %>
+                  </p>
+                  <% } %>
               </div>
               <div>
-                <label for="">Premios:</label>
-                <input type="text" name="awards" value="<%= edition.awards%> ">
+                <label for="awards">Premios:</label>
+                <input type="number" name="awards" id="awards" value="<%= movie.awards%> " />
+                <% if (locals.errors && errors.title) { %>
+                  <p class="text">
+                    <%= errors.title.msg %>
+                  </p>
+                  <% } %>
               </div>
               <div>
-                <label for="">Fecha de estreno:</label>
-                <input type="text" name="release_date" value="<%= edition.release_date.toLocaleDateString('es-US')%>"
-                  autocomplete="on">
+                <label for="release_date">Fecha de estreno:</label>
+                <input type="date" name="release_date" id="release_date"
+                  value="<%= movie.release_date.toLocaleDateString('es-US')%>" autocomplete="on" />
+                <% if (locals.errors && errors.title) { %>
+                  <p class="text">
+                    <%= errors.title.msg %>
+                  </p>
+                  <% } %>
               </div>
               <div>
-                <label for="">Duración:</label>
-                <input type="text" name="length" value="<%= edition.length %> ">
+                <label for="length">Duración:</label>
+                <input type="number" name="length" id="length" value="<%= movie.length %> " />
+                <% if (locals.errors && errors.title) { %>
+                  <p class="text">
+                    <%= errors.title.msg %>
+                  </p>
+                  <% } %>
               </div>
               <div class="generos_actores">
                 <div>
                   <label for="">Género:</label>
-                  <select name="generos">
-                    <% genresEdit.forEach(genre=> { %>
-                      <% if (edition.id===genre.id) { %>
-                        <option value="<%= genre.id %>" selected>
-                          <%= genre.name %>
+                  <select name="generos" id="genre">
+                    <% for (let i=0; i < genre.length; i++) { %>
+                      <% if (genre[i].id==movie.genre_id) { %>
+                        <option value="<%= genre[i].id %>" selected>
+                          <%= genre[i].name %>
                         </option>
-                        <% } %>
-                          <option value="<%= genre.id %>">
-                            <%= genre.name %>
+                        <% } else { %>
+                          <option value="<%= genre[i].id %>">
+                            <%= genre[i].name %>
                           </option>
-                          <% }) %>
+                          <% } %>
+                            <% } %>
                   </select>
                 </div>
 
-                <label for="">Actores:</label>
-                <select name="actores">
-                  <% for(let i=0; i < actorsEdit.length; i++ ) { %>
-                    <li>
-                      <option value="<%= actorsEdit[i].id %>">
-                        <%= actorsEdit[i].first_name %>
-                          <%= actorsEdit[i].last_name %>
-                      </option>
-                      <p>
-
-                      </p>
-
-                    </li>
-                    <% } %>
-                </select>
-              </div>
               </div>
               <div class="botones">
                 <input type="submit" value="Guardar cambios">
@@ -73,7 +83,6 @@
               </div>
             </form>
         </section>
-
         <%- include('./partials/footer.ejs') %>
   </body>
 

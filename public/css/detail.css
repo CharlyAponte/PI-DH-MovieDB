@@ -6,7 +6,7 @@
 .main-top {
   width: 100%;
   text-align: center;
-  background-color: #fff;
+  background-color: rgb(186, 183, 183);
   display: flex;
   flex-direction: column;
 }
@@ -41,7 +41,8 @@ div p {
   font-size: 20px;
 }
 
-.botonEdit {
+.botonCrud {
+  padding-top: 15px;
   width: 80%;
   margin: auto;
   display: flex;
@@ -49,7 +50,21 @@ div p {
   margin-bottom: 10px;
 }
 
-.botonEdit a {
+.botonCrud a {
   text-decoration: none;
   color: rgb(7, 15, 246);
+}
+
+.botonCrud input {
+  color: blue;
+}
+
+.actor_detalle {
+  margin-top: -30px;
+}
+
+.actor_detalle a {
+  text-decoration: none;
+  color: black;
+  margin-bottom: 5px;
 }

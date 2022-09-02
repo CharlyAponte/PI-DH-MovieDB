@@ -21,7 +21,7 @@ const validateForm = [
     ),
 ];
 
-router.get("/register", registerController.register);
-router.post("/", validateForm, registerController.store);
+router.get("/user/register", registerController.register);
+router.post("/user/register", registerController.processRegister);
 
 module.exports = router;

@@ -1,14 +1,12 @@
 module.exports = (sequelize, dataTypes) => {
-  let alias = "Actors";
-
+  let alias = "Actor";
   let cols = {
     id: {
-      type: dataTypes.INTEGER,
+      type: dataTypes.BIGINT(10).UNSIGNED,
       primaryKey: true,
       autoIncrement: true,
     },
-    // created_at: dataTypes.TIMESTAMP,
-    // updated_at:dataTypes.TIMESTAMP ,
+
     first_name: {
       type: dataTypes.STRING(100),
       allowNull: false,
@@ -21,17 +19,34 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.DECIMAL(3, 1),
       allowNull: false,
     },
-    favorite_movie_id: {
-      type: dataTypes.BIGINT(10).UNSIGNED,
-    },
+    favorite_movie_id: dataTypes.BIGINT(10).UNSIGNED,
   };
 
   let config = {
-    tableName: "actors", //*nombre de la tabla
-    timestamps: false, //* fecha de creacion y actualizacion de registros en caso de que no esten
+    timestamps: true,
+    createdAt: "created_at",
+    updatedAt: "updated_at",
+    deletedAt: false,
   };
 
-  const Actors = sequelize.define(alias, cols, config);
+  const Actor = sequelize.define(alias, cols, config);
 
-  return Actors;
+  Actor.associate = function (models) {
+    Actor.belongsToMany(models.Movie, {
+      as: "movies",
+      through: "actor_movie",
+      foreignKey: "actor_id",
+      otherKey: "movie_id",
+      timestamps: false,
+    }),
+      Actor.belongsToMany(models.Episode, {
+        as: "episodes",
+        through: "actor_episode",
+        foreignKey: "actor_id",
+        otherKey: "episode_id",
+        timestamps: false,
+      });
+  };
+
+  return Actor;
 };

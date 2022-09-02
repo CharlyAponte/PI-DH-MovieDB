@@ -1,13 +1,24 @@
 const db = require("../database/models");
+const bcrypt = require("bcryptjs");
+const sequelize = db.sequelize;
 const registerController = {
   register: (req, res) => {
-    res.render("register.ejs");
+    return res.render("register");
   },
 
-  store: (req, res) => {
-    let user = req.body;
-    userId = usersModel.create(user);
-    res.redirect("/login" + userId);
+  processRegister: (req, res) => {
+    const newUser = {
+      ...req.body,
+      password: bcrypt.hashSync(req.body.password, 10),
+    };
+
+    db.User.create(newUser)
+      .then(() => {
+        return res.redirect("login");
+      })
+      .catch((error) => {
+        return res.redirect(error);
+      });
   },
 };
 
